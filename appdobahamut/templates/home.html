@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Uma Página de Final Fantasy</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel = "stylesheet" type = "text/css" href = "{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?      
+  family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="banner-center">
+    <h3>Maria Eduarda da Fonseca</h3>
+    <div> <img
+        src=https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Final_Fantasy_logo_with_japanese_name.svg/1200px-Final_Fantasy_logo_with_japanese_name.svg.png
+        width="400"> </div>
+  </div>
+  
+  <div class="blue-center">
+    <img src="https://i.gifer.com/origin/fe/fef4b620a81e738ec5d47f9a385bb856_w200.gif">
+    <p style="text-align: justify;">
+      <b>Essa é uma página sobre minha série de jogos favorita: Final Fantasy.</b>
+      Nela vou falar sobre meus títulos preferidos
+      da série, sobre a lore, as mêcanicas e os aspectos positivos e negativos -
+      <i>sob o meu ponto de vista</i>- de
+      cada jogo. Como são muitos jogos <del>e não me pergunte quantos</del>, vou
+      me limitar a apenas a linha principal e suas sequências.
+    </p>
+    <h2>Meus jogos favoritos</h2>
+    <!-- <ol>
+      <li>Final Fantasy 9</li>
+      <li>Final Fantasy 5</li>
+      <li>Final Fantasy 4</li>
+    </ol> -->
+    <ol>
+      {% for jogo in jogos %}
+      <li>
+          {{ jogo.tittle }} - <a href = "{% url 'update_game' jogo.id %}">edit</a> - <a href = "{% url 'delete_jogo' jogo.id %}">delete</a>
+      </li>
+      {% endfor %}
+    </ol>
+    <a href = "/jogos"> Adicionar novo jogo </a>
+
+    
+    <h2>Mecânicas Legais</h2>
+    <!-- <ul>
+      <li>ATE (Active Time Event)</li>
+      <li>Sistema de Jobs</li>
+      <li>ATB (Active Time Battle></li>
+    </ul> -->
+    <ul>
+      {% for mecanica in mecanicas %}
+      <li> 
+        {{ mecanica.tittle }} - <a href = "{% url 'update_mecanica' mecanica.id %}">edit</a> - <a href = "{% url 'delete_mecanica' mecanica.id %}">delete</a>
+      </li>
+      {% endfor %}
+    </ul>
+     <a href = "/mecânicas"> Adicionar nova mecânica </a>
+    <div> <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ceb42da1-3637-4312-816f-30e7ecea3189/dd9ju14-2282a81c-e8bd-4e06-a4e3-7be11d88ae31.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NlYjQyZGExLTM2MzctNDMxMi04MTZmLTMwZTdlY2VhMzE4OVwvZGQ5anUxNC0yMjgyYTgxYy1lOGJkLTRlMDYtYTRlMy03YmUxMWQ4OGFlMzEuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Lg8fB5dgkpr5GONeOvi2vn4Qx8RzdTZwl8tpIKSkzlI" width="200"> </div>
+
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Data de Lançamento</th>
+        <th>Plataforma</th>
+      </tr>
+     
+        {% for table in tables %}
+      <tr>
+        <td>{{ table.tittle }}</td>
+        <td>{{ table.releaseDate }}</td>
+        <td>{{ table.platforms }}</td> 
+      </tr>
+        {% endfor %}
+      
+    <!-- 
+      <tr>
+        <td>Final Fantasy IV</td>
+        <td>19 de Julho de 1991</td>
+        <td>SNES</td>
+      </tr> 
+
+      <tr>
+        <td>Final Fantasy V</td>
+        <td>6 de dezembro de 1992</td>
+        <td>SNES</td>
+
+      </tr>
+      <tr>
+        <td>Final Fantasy IX</td>
+        <td>7 de Julho de 2000</td>
+        <td>PS1</td>
+      </tr> -->
+    </table>
+
+    <h5>Link para a página da wiki fandom</h5>
+    <a href="https://finalfantasy.fandom.com/pt- 
+  br/wiki/P%C3%A1gina_principal" target="_blank">Fandom Wiki</a>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

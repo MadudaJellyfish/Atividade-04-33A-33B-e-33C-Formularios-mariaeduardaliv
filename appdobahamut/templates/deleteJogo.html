@@ -1,0 +1,9 @@
+<p>Você tem certeza que deseja deletar este jogo?"</p>
+
+<form method="POST">
+  {% csrf_token %}
+  <a href="{% url 'home' %}">Cancelar</a>
+  <input type="submit" name="confirmar">
+  
+  
+</form>
