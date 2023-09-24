@@ -25,5 +25,4 @@ urlpatterns = [
     path('update_mecanica/<str:pk>/', views.update_mecanica, name = "update_mecanica"),
     path('delete_jogo/<str:pk>/', views.delete_jogo, name = "delete_jogo"),
     path('delete_mecanica/<str:pk>/', views.delete_mecanica, name = "delete_mecanica"),
-    path('admin/', admin.site.urls),
 ]
